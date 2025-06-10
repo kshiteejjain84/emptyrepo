@@ -3,10 +3,11 @@ pipeline {
   stages {
     stage('creating docker volume') {
       steps {
+        dir('/var/lib/docker/volumes/server/_data') {
         sh 'docker volume create server'
-        sh ' cd /var/lib/docker/volumes/server/_data'
         sh 'echo "hello welcome to docker" >> index.html'
-      }
+        }
+        }
     }
     stage('creatin & login to container and attaching volume to it') {
       steps {

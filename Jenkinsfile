@@ -6,6 +6,7 @@ pipeline {
         dir('/var/lib/docker/volumes/server/_data') {
         sh 'docker volume create server'
         sh 'echo "hello welcome to docker" >> index.html'
+        sh 'chmod -R 777 index.html'
         }
         }
     }
